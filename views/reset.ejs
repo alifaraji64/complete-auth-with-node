@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>password reset</title>
+		<style>
+			body {
+				display: flex;
+				height: 100vh;
+				justify-content: space-around;
+				align-items: center;
+				flex-direction: column;
+			}
+
+			form {
+				min-width: 350px;
+				max-width: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="POST">
+			<%if(typeof errors!='undefined'){%> <%errors.forEach(function(error){%>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<%=error.msg%>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<%})%> <%}%>
+			<h1 class="m-auto">reset page</h1>
+			<br />
+			<br />
+			<br />
+			<h4>
+				welcome <%if (typeof email!='undefined'){%> <%=email%> <%}%>
+			</h4>
+			<br />
+			<div class="form-group">
+				<label for="exampleInputEmail1">new Password</label>
+				<input type="password" class="form-control" name="password1" placeholder="password" />
+				<br />
+				<label for="exampleInputEmail1">new Password confirm</label>
+				<input type="password" class="form-control" name="password2" placeholder="password confirm" />
+				<button type="submit" class="btn btn-primary center">Reset</button>
+			</div>
+		</form>
+	</body>
+</html>
